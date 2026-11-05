@@ -1,9 +1,45 @@
+let sunHeight = 600;
+
+let redVal = 0;
+let greenVal = 0;
+
 function setup() {
-    createCanvas(800, 600);
+  createCanvas(600, 400);
 }
 
 function draw() {
-      background(135, 206, 235);
-      fill ("yellow");
-      circle (mouseX,mouseY,100);
+  redVal = constrain(redVal, 0, 255);
+  greenVal = constrain(greenVal, 0, 130);
+
+  background(redVal, greenVal, 0);
+ 
+  fill(255, 255, 0, 60);
+  circle(300, sunHeight, 180);
+  fill(255, 230, 50, 100);
+  circle(300, sunHeight, 140);
+ 
+  // Mountains
+  fill(110, 50, 18);
+  triangle(200, 400, 520, 253, 800, 400);
+  fill(110, 95, 20);
+  triangle(200, 400, 520, 253, 350, 400); 
+ 
+  fill(150, 75, 0);
+  triangle(-100, 400, 150, 200, 400, 400);
+  fill(100, 50, 12);
+  triangle(-100, 400, 150, 200, 0, 400);
+ 
+  fill(150, 100, 0);
+  triangle(200, 400, 450, 250, 800, 400);
+  fill(120, 80, 50);
+  triangle(200, 400, 450, 250, 300, 400);
+ 
+  if (sunHeight > 130) {
+    sunHeight -= 2;
+  }
+   
+  if (sunHeight < 480) {
+    redVal += 4;
+    greenVal += 2;
+  }  
 }
